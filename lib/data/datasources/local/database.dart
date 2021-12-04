@@ -24,36 +24,34 @@ class TaskLocalDataSource {
   }
 
   Future<void> addTask(TaskModel task) async {
-    // TODO
-  }
-
-  Future<List<TaskModel>> getAllTasks() async {
-    // Get a reference to the database.
+    //print("Adding task to db");
     final db = await database;
 
-    // Query the table for all The Dogs.
-    final List<Map<String, dynamic>> maps = await db.query('tasks');
-
-    // Convert the List<Map<String, dynamic> into a List<Dog>.
-    return List.generate(maps.length, (i) {
-      return TaskModel(
-        id: maps[i]['id'],
-        content: maps[i]['content'],
-        date: DateTime.parse(maps[i]['date']),
-        state: maps[i]['state'] == 0 ? false : true,
-      );
-    });
+    await db.insert(
+      'tasks',
+      task.toMapSqlite(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
-  Future<void> deleteTask(id) async {
-    // TODO
+ //TO DO:
+  Future<List<TaskModel>> getAllTasks() async {
+
+    /// 1.Obtener una referencia a la base de datos.
+ 
+    // 2.Consultar la tabla para todas las Tareas.
+
+    // 3.Convertir la Lista<Map<String, dynamic> en una Lista<tasks>.
+    
   }
 
-  Future<void> deleteAll() async {
-    // TODO
-  }
+  // 4.Implementa un futuro para eliminar tareas especificas.
+  // Future<void> deleteTask(id) async { }
 
-  Future<void> updateTask(TaskModel task) async {
-    // TODO
-  }
+  // 5.Implementa un futuro para eliminar todas las tareas
+  // Future<void> deleteAll() async { }
+
+  // 6.Implementa un futuro para actualizar tareas
+  // Future<void> updateTask(TaskModel task) async {}
+
 }

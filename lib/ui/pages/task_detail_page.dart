@@ -37,7 +37,7 @@ class _TaskDetailPageState extends State<TaskDetailPage> {
                 IconButton(
                   icon: const Icon(Icons.delete),
                   onPressed: () async {
-                    // TODO
+                    // TODO realiza el llamado al metodo para eliminar una tarea
                   },
                 )
               ]
@@ -94,9 +94,10 @@ class _TaskDetailPageState extends State<TaskDetailPage> {
                           String message = "";
                           bool showError = false;
                           if (_editing) {
-                            // TODO
+                            // TODO llamar metodo para actualizar una tarea   
+                            //existente, en caso de edición
                           } else {
-                            // TODO
+                            // TODO llamar metodo para crear una tarea 
                           }
                           if (showError) {
                             Get.snackbar(title, message,
